@@ -5,8 +5,8 @@
         links.forEach((link) => {
             var url = link.href;
 
-            if (/opinions?\//.test(url) && !/\[Opinion\]/.test(link.textContent)) {
-                link.textContent = '[Opinion] ' + link.textContent;
+            if (/opinions?\//.test(url) && !/\[Opinionated\]/.test(link.textContent)) {
+                link.textContent = '[Opinionated] ' + link.textContent;
             }
         });
     }
