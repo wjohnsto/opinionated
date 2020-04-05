@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Opinionated",
     "author": "William Johnston",
-    "version": "1.3.0",
+    "version": "1.3.1",
     "description": "Checks page content for links to opinion articles on popular news sites",
     "homepage_url": "https://github.com/wjohnsto/opinionated",
     "browser_specific_settings": {
