@@ -11,7 +11,7 @@
         links.forEach((link) => {
             var url = link.href;
 
-            if (regex.test(url) && !(/OPINION/i.test(link.textContent) && !regex.test(link.textContent)) {
+            if (regex.test(url) && !(/OPINION/i.test(link.textContent) && !regex.test(link.textContent))) {
                 var el = document.createElement('span');
                 el.style.color = 'red';
                 el.style.fontWeight = 'bold';
