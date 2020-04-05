@@ -7,6 +7,7 @@
     "icons": {
     },
     "permissions": [
+        "<all_urls>",
         "activeTab"
     ],
     "browser_action": {
@@ -18,9 +19,5 @@
             "match_about_blank": false,
             "js": ["content_scripts/opinionated.js"]
         }
-    ],
-    "permissions": [
-        "<all_urls>",
-        "tabs"
     ]
 }
