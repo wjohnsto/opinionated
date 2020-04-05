@@ -1,0 +1,25 @@
+{
+    "name": "opinionated",
+    "version": "1.2.0",
+    "description": "The purpose of this addon is to inform you when a link location is an opinion article. Most popular news sites have opinion blogs, and you don't want to confuse those articles with reporting articles. The addon will add \"[Opinionated]\" to the text content of every identified URL that links to an opinion article.",
+    "main": "content_scripts/opinionated.js",
+    "scripts": {
+        "build": "npm run clean && web-ext build",
+        "clean": "rimraf web-ext-artifacts",
+        "test": "web-ext run"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wjohnsto/opinionated.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/wjohnsto/opinionated/issues"
+    },
+    "homepage": "https://github.com/wjohnsto/opinionated#readme",
+    "devDependencies": {
+        "rimraf": "^3.0.2",
+        "web-ext": "^4.1.0"
+    }
+}

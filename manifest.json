@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Opinionated",
-    "version": "1.0",
+    "version": "1.2",
     "description": "Checks page content for links to opinion articles on popular news sites",
     "homepage_url": "https://github.com/wjohnsto/opinionated",
     "icons": {
