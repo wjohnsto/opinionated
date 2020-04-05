@@ -3,7 +3,7 @@
     "name": "Opinionated",
     "version": "1.0",
     "description": "Checks page content for links to opinion articles on popular news sites",
-    "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/beastify",
+    "homepage_url": "https://github.com/wjohnsto/opinionated",
     "icons": {
     },
     "permissions": [
