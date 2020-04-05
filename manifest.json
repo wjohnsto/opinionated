@@ -1,23 +1,35 @@
 {
     "manifest_version": 2,
     "name": "Opinionated",
-    "version": "1.2",
+    "author": "William Johnston",
+    "version": "1.2.2",
     "description": "Checks page content for links to opinion articles on popular news sites",
     "homepage_url": "https://github.com/wjohnsto/opinionated",
-    "icons": {
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "{aa139ca1-2695-44d7-bf0d-78d51c56adbf}"
+        }
     },
     "permissions": [
         "<all_urls>",
         "activeTab"
     ],
+    "icons": {
+        "48": "icons/opinionated.png",
+        "96": "icons/opinionated_2x.png"
+    },
     "browser_action": {
         "default_title": "Opinionated"
     },
-    "content_scripts":[
+    "content_scripts": [
         {
-            "matches": ["<all_urls>"],
+            "matches": [
+                "<all_urls>"
+            ],
             "match_about_blank": false,
-            "js": ["content_scripts/opinionated.js"]
+            "js": [
+                "content_scripts/opinionated.js"
+            ]
         }
     ]
 }
