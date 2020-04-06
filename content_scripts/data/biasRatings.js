@@ -14,9 +14,9 @@ window.biasRatings = {
         "rating": "Left",
         "url": "http://www.yesmagazine.org/"
     },
-    "online.wsj.com": {
-        "title": "Wall Street Journal- Opinion",
-        "rating": "Right",
+    "wsj.com": {
+        "title": "Wall Street Journal",
+        "rating": "Lean Right",
         "url": "http://online.wsj.com/public/page/news-opinion-commentary.html"
     },
     "upworthy.com": {
@@ -33,6 +33,11 @@ window.biasRatings = {
         "title": "Washington Post",
         "rating": "Lean Left",
         "url": "https://www.washingtonpost.com/"
+    },
+    "gq.com": {
+        "title": "GQ.com",
+        "rating": "Lean Left",
+        "url": "https://gq.com/"
     },
     "vanityfair.com": {
         "title": "Vanity Fair",
@@ -158,6 +163,11 @@ window.biasRatings = {
         "title": "Daily Northwestern",
         "rating": "Lean Left",
         "url": "http://dailynorthwestern.com/"
+    },
+    "dailymail.co.uk": {
+        "title": "Daily Mail",
+        "rating": "Right",
+        "url": "http://www.dailmail.co.uk/"
     },
     "telegraph.co.uk": {
         "title": "The Telegraph - UK",
