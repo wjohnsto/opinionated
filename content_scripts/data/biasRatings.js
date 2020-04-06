@@ -994,6 +994,11 @@ window.biasRatings = {
         "rating": "Left",
         "url": "http://www.bluevirginia.us"
     },
+    "vice.com": {
+        "title": "Vice",
+        "rating": "Left",
+        "url": "http://www.vice.com"
+    },
     "aquinas.edu": {
         "title": "Aquinas College Saint",
         "rating": "Left",
