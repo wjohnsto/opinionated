@@ -524,10 +524,10 @@ window.biasRatings = {
         "rating": "Center",
         "url": "http://www.forbes.com/"
     },
-    "en.wikipedia.org": {
-        "title": "Boing Boing",
-        "rating": "Left",
-        "url": "http://en.wikipedia.org/wiki/Boing_Boing"
+    "wikipedia.org": {
+        "title": "Wikipedia",
+        "rating": "Center",
+        "url": "http://wikipedia.org/wiki"
     },
     "boingboing.net": {
         "title": "Boing Boing",
