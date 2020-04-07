@@ -1,6 +1,6 @@
 {
     "name": "opinionated",
-    "version": "1.4.5",
+    "version": "1.4.6",
     "description": "The purpose of this addon is to inform you when a link location is an opinion article. Most popular news sites have opinion blogs, and you don't want to confuse those articles with reporting articles. The addon will add \"[Opinionated]\" to the text content of every identified URL that links to an opinion article.",
     "main": "content_scripts/opinionated.js",
     "scripts": {
