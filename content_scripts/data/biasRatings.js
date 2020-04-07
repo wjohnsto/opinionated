@@ -51,7 +51,7 @@ window.biasRatings = {
     },
     "washingtonexaminer.com": {
         "title": "Washington Examiner",
-        "rating": "Right",
+        "rating": "Lean Right",
         "url": "http://washingtonexaminer.com/"
     },
     "vox.com": {
@@ -151,7 +151,7 @@ window.biasRatings = {
     },
     "tallahassee.com": {
         "title": "Tallahassee Democrat",
-        "rating": "Left",
+        "rating": "Center",
         "url": "http://www.tallahassee.com/"
     },
     "chicagotribune.com": {
@@ -281,7 +281,7 @@ window.biasRatings = {
     },
     "foxnews.com": {
         "title": "Fox News",
-        "rating": "Right",
+        "rating": "Lean Right",
         "url": "http://www.foxnews.com/"
     },
     "counterpointing.com": {
@@ -426,7 +426,7 @@ window.biasRatings = {
     },
     "cnn.com": {
         "title": "CNN",
-        "rating": "Center",
+        "rating": "Lean Left",
         "url": "http://www.cnn.com"
     },
     "bloomberg.com": {
@@ -446,7 +446,7 @@ window.biasRatings = {
     },
     "politico.com": {
         "title": "Politico",
-        "rating": "Center",
+        "rating": "Lean Left",
         "url": "http://www.politico.com/"
     },
     "seattletimes.com": {
@@ -491,7 +491,7 @@ window.biasRatings = {
     },
     "dailycaller.com": {
         "title": "Daily Caller",
-        "rating": "Lean Right",
+        "rating": "Right",
         "url": "http://dailycaller.com/"
     },
     "newrepublic.com": {
@@ -561,7 +561,7 @@ window.biasRatings = {
     },
     "thedailybeast.com": {
         "title": "Daily Beast",
-        "rating": "Center",
+        "rating": "Left",
         "url": "http://www.thedailybeast.com/"
     },
     "alternet.org": {
@@ -641,7 +641,7 @@ window.biasRatings = {
     },
     "drudgereport.com": {
         "title": "Drudge Report",
-        "rating": "Center",
+        "rating": "Lean Right",
         "url": "http://www.drudgereport.com/"
     },
     "bearingdrift.com": {
@@ -671,7 +671,7 @@ window.biasRatings = {
     },
     "Buzzfeed.com": {
         "title": "Buzzfeed",
-        "rating": "Lean Left",
+        "rating": "Left",
         "url": "http://Buzzfeed.com"
     },
     "slate.com": {
@@ -726,7 +726,7 @@ window.biasRatings = {
     },
     "heralddemocrat.com": {
         "title": "Herald Democrat",
-        "rating": "Left",
+        "rating": "Not Rated",
         "url": "http://heralddemocrat.com/"
     },
     "americanthinker.com": {
@@ -906,7 +906,7 @@ window.biasRatings = {
     },
     "time.com": {
         "title": "Time Magazine",
-        "rating": "Left",
+        "rating": "Lean Left",
         "url": "http://www.time.com/time/"
     },
     "michellemalkin.com": {
@@ -1016,7 +1016,7 @@ window.biasRatings = {
     },
     "newsmax.com": {
         "title": "Newsmax",
-        "rating": "Right",
+        "rating": "Lean Right",
         "url": "http://www.newsmax.com/"
     },
     "frankminiter.com": {
