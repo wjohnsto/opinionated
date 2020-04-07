@@ -5,6 +5,6 @@ Alternatively if an opinion article is not linked, this addon will use a curated
     1. "[<<]" = Left
     2. "[<]"  = Lean Left
     3. "[<>]" = Center
+    3. "[<~>]" = Mixed
     4. "[>]"  = Lean Right
     5. "[>>]" = Right
-

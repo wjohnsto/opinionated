@@ -6,6 +6,7 @@
         'Left': '<<',
         'Lean Left': '<',
         'Center': '<>',
+        'Mixed': '<~>',
         'Lean Right': '>',
         'Right': '>>'
     };
