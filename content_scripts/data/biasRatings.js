@@ -674,6 +674,11 @@ window.biasRatings = {
         "rating": "Lean Left",
         "url": "http://Buzzfeed.com"
     },
+    "slate.com": {
+        "title": "Slate",
+        "rating": "Left",
+        "url": "http://slate.com/"
+    },
     "sltrib.com": {
         "title": "The Salt Lake Tribune",
         "rating": "Lean Left",
