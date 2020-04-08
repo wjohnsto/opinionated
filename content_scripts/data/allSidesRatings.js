@@ -666,7 +666,7 @@ window.allSidesRatings = {
     },
     "thefederalist.com": {
         "title": "The Federalist",
-        "rating": "Lean Right",
+        "rating": "Right",
         "url": "http://thefederalist.com/"
     },
     "Buzzfeed.com": {
@@ -726,7 +726,7 @@ window.allSidesRatings = {
     },
     "heralddemocrat.com": {
         "title": "Herald Democrat",
-        "rating": "Not Rated",
+        "rating": "Left",
         "url": "http://heralddemocrat.com/"
     },
     "americanthinker.com": {
