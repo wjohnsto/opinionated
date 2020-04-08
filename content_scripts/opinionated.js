@@ -1,6 +1,8 @@
 
 (() => {
-    var ratings = window.allSidesRatings;
+    var allSidesRatings = window.allSidesRatings;
+    var swprsRatings = window.swprsRatings;
+    var ratings = mergeKeys(swprsRatings, allSidesRatings);
     var ratingsKeys = Object.keys(ratings);
     var ratingsMap = {
         'Left': '<<',
@@ -10,6 +12,19 @@
         'Lean Right': '>',
         'Right': '>>'
     };
+
+    function mergeKeys(a, b) {
+        var keys = Object.keys(b);
+        var out = JSON.parse(JSON.stringify(a));
+
+        for (var i = 0; i < keys; ++i) {
+            var key = keys[i];
+
+            out[key] = b[key];
+        }
+
+        return out;
+    }
 
     function findHeader(el, start) {
         if (!start) {

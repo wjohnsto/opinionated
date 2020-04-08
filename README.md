@@ -8,3 +8,5 @@ Alternatively if an opinion article is not linked, this addon will use a curated
     3. "[<~>]" = Mixed
     4. "[>]"  = Lean Right
     5. "[>>]" = Right
+
+The final place where this addon will look is from [Swiss Propaganda Research](https://swprs.org/media-navigator/). [This image](https://imgur.com/yp4Qtwz) contains the breakdown from SWPRS, and is merged into the AllSides ratings to fill in blanks.
