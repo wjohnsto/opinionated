@@ -1,6 +1,6 @@
 
 (() => {
-    var ratings = window.biasRatings;
+    var ratings = window.allSidesRatings;
     var ratingsKeys = Object.keys(ratings);
     var ratingsMap = {
         'Left': '<<',
@@ -112,3 +112,17 @@
         find_links();
     } catch (e) { }
 })();
+
+var links = [{ href: 'foo', textContent: 'bar' }]
+
+links.reduce((hash, current) => {
+    var parts = /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/i.exec(current.href);
+
+    hash[parts[2].replace('www.', '')] = {
+        title: current.textContent,
+        url: current.href,
+        rating: ''
+    };
+
+    return hash;
+}, {})

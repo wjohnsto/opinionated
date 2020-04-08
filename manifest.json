@@ -28,7 +28,8 @@
             ],
             "match_about_blank": false,
             "js": [
-                "content_scripts/data/biasRatings.js",
+                "content_scripts/data/allSidesRatings.js",
+                "content_scripts/data/swprsRatings.js",
                 "content_scripts/opinionated.js"
             ]
         }

@@ -1,4 +1,4 @@
-window.biasRatings = {
+window.allSidesRatings = {
     "wisconsingazette.com": {
         "title": "Wisconsin Gazette",
         "rating": "Lean Left",
@@ -1068,20 +1068,5 @@ window.biasRatings = {
         "title": "Hampton Roads Messanger",
         "rating": "Center",
         "url": "http://www.hamptonroadsmessenger.com/"
-    },
-    "counterpunch.org": {
-        "title": "CounterPunch",
-        "rating": "Lean Left",
-        "url": "http://www.counterpunch.org/"
-    },
-    "therealnews.com": {
-        "title": "The Real News Network",
-        "rating": "Lean Left",
-        "url": "http://therealnews.com/"
-    },
-    "tyt.com": {
-        "title": "The Young Turks",
-        "rating": "Lean Left",
-        "url": "http://therealnews.com/"
     }
 }
