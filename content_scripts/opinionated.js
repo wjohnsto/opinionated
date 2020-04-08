@@ -3,6 +3,7 @@
     var allSidesRatings = window.allSidesRatings;
     var swprsRatings = window.swprsRatings;
     var ratings = mergeKeys(swprsRatings, allSidesRatings);
+    console.log(ratings);
     var ratingsKeys = Object.keys(ratings);
     var ratingsMap = {
         'Left': '<<',
@@ -17,7 +18,7 @@
         var keys = Object.keys(b);
         var out = JSON.parse(JSON.stringify(a));
 
-        for (var i = 0; i < keys; ++i) {
+        for (var i = 0; i < keys.length; ++i) {
             var key = keys[i];
 
             out[key] = b[key];

@@ -1,4 +1,634 @@
 window.allSidesRatings = {
+    "abovethelaw.com": {
+        "title": "Above The Law",
+        "rating": "Lean Left",
+        "url": "https://abovethelaw.com"
+    },
+    "abridgenews.com": {
+        "title": "Abridge News",
+        "rating": "Mixed",
+        "url": "https://abridgenews.com"
+    },
+    "ajplus.net": {
+        "title": "AJ+",
+        "rating": "Left",
+        "url": "https://www.ajplus.net"
+    },
+    "aljazeera.com": {
+        "title": "Al Jazeera",
+        "rating": "Lean Left",
+        "url": "https://www.aljazeera.com/"
+    },
+    "amgreatness.com": {
+        "title": "American Greatness",
+        "rating": "Right",
+        "url": "https://www.amgreatness.com/"
+    },
+    "axios.com": {
+        "title": "Axios",
+        "rating": "Center",
+        "url": "https://www.axios.com/"
+    },
+    "azcentral.com": {
+        "title": "AZ Central",
+        "rating": "Center",
+        "url": "https://www.azcentral.com/"
+    },
+    "bet.com": {
+        "title": "BET",
+        "rating": "Lean Left",
+        "url": "https://www.bet.com/"
+    },
+    "bostonherald.com": {
+        "title": "Boston Herald",
+        "rating": "Lean Right",
+        "url": "https://www.bostonherald.com/"
+    },
+    "braverangels.org": {
+        "title": "Braver Angels",
+        "rating": "Mixed",
+        "url": "https://braverangels.org/"
+    },
+    "bridgemi.com": {
+        "title": "Bridgemi.com",
+        "rating": "Center",
+        "url": "https://www.bridgemi.com/"
+    },
+    "browngirlmagazine.com": {
+        "title": "Brown Girl Magazine",
+        "rating": "Left",
+        "url": "https://www.browngirlmagazine.com/"
+    },
+    "checkyourfact.com": {
+        "title": "Check Your Fact",
+        "rating": "Lean Right",
+        "url": "https://checkyourfact.com/"
+    },
+    "chicagodefender.com": {
+        "title": "Chicago Defender",
+        "rating": "Left",
+        "url": "https://chicagodefender.com/"
+    },
+    "christianitytoday.com": {
+        "title": "Christianity Today",
+        "rating": "Lean Right",
+        "url": "https://www.christianitytoday.com/"
+    },
+    "city-journal.org": {
+        "title": "City Journal",
+        "rating": "Right",
+        "url": "https://www.city-journal.org/"
+    },
+    "cnet.com": {
+        "title": "CNET",
+        "rating": "Center",
+        "url": "https://www.cnet.com/"
+    },
+    "cnsnews.com": {
+        "title": "CNS News",
+        "rating": "Right",
+        "url": "http://www.cnsnews.com"
+    },
+    "cjr.org": {
+        "title": "Columbia Journalism Review",
+        "rating": "Center",
+        "url": "https://www.cjr.org/"
+    },
+    "commentarymagazine.com": {
+        "title": "Commentary Magazine",
+        "rating": "Right",
+        "url": "https://www.commentarymagazine.com/"
+    },
+    "concordmonitor.com": {
+        "title": "Concord Monitor",
+        "rating": "Center",
+        "url": "https://www.concordmonitor.com/"
+    },
+    "currentaffairs.org": {
+        "title": "Current Affairs",
+        "rating": "Left",
+        "url": "https://www.currentaffairs.org/"
+    },
+    "defenseone.com": {
+        "title": "Defense One",
+        "rating": "Center",
+        "url": "https://www.defenseone.com/"
+    },
+    "desmoinesregister.com": {
+        "title": "Des Moines Register",
+        "rating": "Center",
+        "url": "https://www.desmoinesregister.com/"
+    },
+    "freep.com": {
+        "title": "Detroit Free Press",
+        "rating": "Lean Left",
+        "url": "https://www.freep.com/"
+    },
+    "detroitnews.com": {
+        "title": "Detroit News",
+        "rating": "Center",
+        "url": "https://www.detroitnews.com/"
+    },
+    "diplomaticourier.com": {
+        "title": "Diplomatic Courier",
+        "rating": "Center",
+        "url": "https://www.diplomaticourier.com/"
+    },
+    "erraticus.co": {
+        "title": "Erraticus",
+        "rating": "Center",
+        "url": "https://erraticus.co/"
+    },
+    "esquire.com": {
+        "title": "Esquire",
+        "rating": "Left",
+        "url": "https://www.esquire.com/"
+    },
+    "washingtonpost.com/news/fact-checker": {
+        "title": "Fact Checker Blog",
+        "rating": "Center",
+        "url": "https://www.washingtonpost.com/news/fact-checker/"
+    },
+    "fair.org": {
+        "title": "FAIR",
+        "rating": "Lean Left",
+        "url": "https://fair.org/"
+    },
+    "ft.com": {
+        "title": "Financial Times",
+        "rating": "Center",
+        "url": "https://www.ft.com/"
+    },
+    "foreignaffairs.com": {
+        "title": "Foreign Affairs",
+        "rating": "Center",
+        "url": "https://www.foreignaffairs.com/"
+    },
+    "foreignpolicy.com": {
+        "title": "Foreign Policy",
+        "rating": "Center",
+        "url": "https://foreignpolicy.com/"
+    },
+    "glaad.org": {
+        "title": "GLAAD",
+        "rating": "Lean Left",
+        "url": "https://www.glaad.org/"
+    },
+    "news.google.com": {
+        "title": "Google News",
+        "rating": "Lean Left",
+        "url": "https://news.google.com/"
+    },
+    "grist.org": {
+        "title": "Grist",
+        "rating": "Lean Left",
+        "url": "https://grist.org/"
+    },
+    "heavy.com": {
+        "title": "Heavy.com",
+        "rating": "Center",
+        "url": "https://heavy.com"
+    },
+    "civilbeat.org": {
+        "title": "Honolulu Civil Beat",
+        "rating": "Center",
+        "url": "https://www.civilbeat.org/"
+    },
+    "houstonchronicle.com": {
+        "title": "Houston Chronicle",
+        "rating": "Center",
+        "url": "https://houstonchronicle.com/"
+    },
+    "howdowefixit.me": {
+        "title": "How Do We Fix It?",
+        "rating": "Center",
+        "url": "https://www.howdowefixit.me/"
+    },
+    "huffpost.com": {
+        "title": "HuffPost",
+        "rating": "Left",
+        "url": "https://www.huffpost.com/"
+    },
+    "idahostatesman.com": {
+        "title": "Idaho Statesman",
+        "rating": "Center",
+        "url": "https://www.idahostatesman.com/"
+    },
+    "inacow.com": {
+        "title": "Inacow",
+        "rating": "Right",
+        "url": "https://inacow.com"
+    },
+    "insidephilanthropy.com": {
+        "title": "Inside Philanthropy",
+        "rating": "Center",
+        "url": "https://www.insidephilanthropy.com/"
+    },
+    "intellectualconservative.com": {
+        "title": "Intellectual Conservative",
+        "rating": "Lean Right",
+        "url": "http://www.intellectualconservative.com/"
+    },
+    "jacobinmag.com": {
+        "title": "Jacobin",
+        "rating": "Left",
+        "url": "https://www.jacobinmag.com/"
+    },
+    "jezebel.com": {
+        "title": "Jezebel",
+        "rating": "Left",
+        "url": "https://jezebel.com/"
+    },
+    "jubileemedia.com": {
+        "title": "Jubilee Media",
+        "rating": "Center",
+        "url": "https://www.jubileemedia.com/"
+    },
+    "katu.com": {
+        "title": "KATU",
+        "rating": "Center",
+        "url": "https://katu.com/"
+    },
+    "kqed.org": {
+        "title": "KQED",
+        "rating": "Center",
+        "url": "https://www.kqed.org/"
+    },
+    "lifehacker.com": {
+        "title": "Lifehacker",
+        "rating": "Center",
+        "url": "https://lifehacker.com/"
+    },
+    "listenfirstproject.org": {
+        "title": "Listen First Project",
+        "rating": "Mixed",
+        "url": "https://www.listenfirstproject.org/"
+    },
+    "marketwatch.com": {
+        "title": "MarketWatch",
+        "rating": "Lean Right",
+        "url": "https://www.marketwatch.com/"
+    },
+    "mashable.com": {
+        "title": "Mashable",
+        "rating": "Left",
+        "url": "https://mashable.com/"
+    },
+    "mcclatchydc.com": {
+        "title": "McClatchyDC",
+        "rating": "Center",
+        "url": "https://www.mcclatchydc.com/"
+    },
+    "mediamatters.org": {
+        "title": "Media Matters",
+        "rating": "Left",
+        "url": "https://www.mediamatters.org/"
+    },
+    "mrc.org": {
+        "title": "Media Research Center",
+        "rating": "Right",
+        "url": "https://www.mrc.org/"
+    },
+    "miamiherald.com": {
+        "title": "Miami Herald",
+        "rating": "Lean Left",
+        "url": "https://www.miamiherald.com/"
+    },
+    "mismatch.org": {
+        "title": "Mismatch.org",
+        "rating": "Mixed",
+        "url": "https://mismatch.org/"
+    },
+    "mtv.com/news": {
+        "title": "MTV News Online",
+        "rating": "Lean Left",
+        "url": "http://www.mtv.com/news/"
+    },
+    "unionleader.com": {
+        "title": "New Hampshire Union Leader",
+        "rating": "Center",
+        "url": "https://www.unionleader.com/"
+    },
+    "nydailynews.com": {
+        "title": "New York Daily News",
+        "rating": "Left",
+        "url": "https://www.nydailynews.com/"
+    },
+    "newsbusters.org": {
+        "title": "NewsBusters",
+        "rating": "Right",
+        "url": "https://www.newsbusters.org/"
+    },
+    "newsone.com": {
+        "title": "NewsOne",
+        "rating": "Left",
+        "url": "https://newsone.com/"
+    },
+    "newsy.com": {
+        "title": "Newsy",
+        "rating": "Center",
+        "url": "https://www.newsy.com/"
+    },
+    "newtrals.com": {
+        "title": "Newtrals",
+        "rating": "Center",
+        "url": "https://www.newtrals.com/"
+    },
+    "niemanlab.org": {
+        "title": "Nieman Lab",
+        "rating": "Center",
+        "url": "https://www.niemanlab.org/"
+    },
+    "phys.org": {
+        "title": "Phys.org",
+        "rating": "Center",
+        "url": "https://phys.org/"
+    },
+    "pjmedia.com": {
+        "title": "PJ Media",
+        "rating": "Lean Right",
+        "url": "https://pjmedia.com/"
+    },
+    "poynter.org": {
+        "title": "Poynter",
+        "rating": "Center",
+        "url": "https://www.poynter.org/"
+    },
+    "progressivevoicesofiowa.com": {
+        "title": "Progressive Voices of Iowa",
+        "rating": "Left",
+        "url": "https://progressivevoicesofiowa.com/"
+    },
+    "projectveritas.com": {
+        "title": "Project Veritas",
+        "rating": "Lean Right",
+        "url": "https://www.projectveritas.com/"
+    },
+    "psychologytoday.com": {
+        "title": "Psychology Today",
+        "rating": "Center",
+        "url": "https://www.psychologytoday.com/"
+    },
+    "pxw.news": {
+        "title": "PXW News",
+        "rating": "Center",
+        "url": "http://pxw.news"
+    },
+    "quillette.com": {
+        "title": "Quillette",
+        "rating": "Lean Right",
+        "url": "https://quillette.com/"
+    },
+    "rasmussenreports.com": {
+        "title": "Rasmussen Reports",
+        "rating": "Center",
+        "url": "https://www.rasmussenreports.com/"
+    },
+    "rightwingnews.com": {
+        "title": "Right Wing News",
+        "rating": "Right",
+        "url": "https://rightwingnews.com/"
+    },
+    "rollcall.com": {
+        "title": "Roll Call",
+        "rating": "Center",
+        "url": "https://www.rollcall.com/"
+    },
+    "rollingstone.com": {
+        "title": "Rolling Stone",
+        "rating": "Left",
+        "url": "http://www.rollingstone.com/"
+    },
+    "sfchronicle.com": {
+        "title": "San Francisco Chronicle",
+        "rating": "Left",
+        "url": "https://www.sfchronicle.com/"
+    },
+    "smerconish.com": {
+        "title": "Smerconish",
+        "rating": "Center",
+        "url": "https://www.smerconish.com/"
+    },
+    "snopes.com": {
+        "title": "Snopes",
+        "rating": "Center",
+        "url": "https://www.snopes.com/"
+    },
+    "socialistproject.ca/bullet": {
+        "title": "Socialist Project/The Bullet",
+        "rating": "Left",
+        "url": "https://socialistproject.ca/bullet/"
+    },
+    "spectator.us": {
+        "title": "Spectator USA",
+        "rating": "Right",
+        "url": "https://spectator.us/"
+    },
+    "splinternews.com": {
+        "title": "Splinter",
+        "rating": "Left",
+        "url": "https://splinternews.com/"
+    },
+    "storycorps.org": {
+        "title": "StoryCorps",
+        "rating": "Mixed",
+        "url": "https://storycorps.org/"
+    },
+    "subverse.net": {
+        "title": "Subverse",
+        "rating": "Center",
+        "url": "https://subverse.net/"
+    },
+    "teenvogue.com": {
+        "title": "Teen Vogue",
+        "rating": "Lean Left",
+        "url": "https://www.teenvogue.com/"
+    },
+    "theamericanconservative.com": {
+        "title": "The American Conservative",
+        "rating": "Lean Right",
+        "url": "https://www.theamericanconservative.com/"
+    },
+    "theappeal.org": {
+        "title": "The Appeal",
+        "rating": "Center",
+        "url": "https://theappeal.org/"
+    },
+    "thecentersquare.com/michigan": {
+        "title": "The Center Square - Michigan",
+        "rating": "Center",
+        "url": "https://www.thecentersquare.com/michigan/"
+    },
+    "thecollegefix.com": {
+        "title": "The College Fix",
+        "rating": "Right",
+        "url": "https://www.thecollegefix.com/"
+    },
+    "dailydot.com": {
+        "title": "The Daily Dot",
+        "rating": "Lean Left",
+        "url": "https://www.dailydot.com/"
+    },
+    "dailysignal.com": {
+        "title": "The Daily Signal",
+        "rating": "Right",
+        "url": "https://www.dailysignal.com/"
+    },
+    "dallasnews.com": {
+        "title": "The Dallas Morning News",
+        "rating": "Center",
+        "url": "https://www.dallasnews.com/"
+    },
+    "thedispatch.com": {
+        "title": "The Dispatch",
+        "rating": "Lean Right",
+        "url": "https://thedispatch.com/"
+    },
+    "theepochtimes.com": {
+        "title": "The Epoch Times",
+        "rating": "Right",
+        "url": "https://www.theepochtimes.com/"
+    },
+    "theflipside.io": {
+        "title": "The Flip Side",
+        "rating": "Mixed",
+        "url": "https://www.theflipside.io/"
+    },
+    "thefulcrum.us": {
+        "title": "The Fulcrum",
+        "rating": "Center",
+        "url": "https://thefulcrum.us/"
+    },
+    "theglobeandmail.com": {
+        "title": "The Globe and Mail",
+        "rating": "Center",
+        "url": "https://www.theglobeandmail.com/"
+    },
+    "theimaginativeconservative.org": {
+        "title": "The Imaginative Conservative",
+        "rating": "Right",
+        "url": "https://theimaginativeconservative.org/"
+    },
+    "jpost.com": {
+        "title": "The Jerusalem Post",
+        "rating": "Center",
+        "url": "https://jpost.com/"
+    },
+    "themarshallproject.org": {
+        "title": "The Marshall Project",
+        "rating": "Center",
+        "url": "https://www.themarshallproject.org/"
+    },
+    "thenationalpulse.com": {
+        "title": "The National Pulse",
+        "rating": "Right",
+        "url": "https://thenationalpulse.com/"
+    },
+    "newyorker.com": {
+        "title": "The New Yorker",
+        "rating": "Left",
+        "url": "https://newyorker.com/"
+    },
+    "inquirer.com": {
+        "title": "The Philadelphia Inquirer",
+        "rating": "Lean Left",
+        "url": "https://www.inquirer.com/"
+    },
+    "theplebian.com": {
+        "title": "The Plebeian",
+        "rating": "Lean Left",
+        "url": "https://theplebian.com/"
+    },
+    "thepostmillennial.com": {
+        "title": "The Post Millennial",
+        "rating": "Lean Right",
+        "url": "https://www.thepostmillennial.com/"
+    },
+    "theresurgent.com": {
+        "title": "The Resurgent",
+        "rating": "Right",
+        "url": "https://theresurgent.com/"
+    },
+    "theroot.com": {
+        "title": "The Root",
+        "rating": "Lean Left",
+        "url": "https://www.theroot.com/"
+    },
+    "saturdayeveningpost.com": {
+        "title": "The Saturday Evening Post",
+        "rating": "Center",
+        "url": "https://saturdayeveningpost.com/"
+    },
+    "thetexan.news": {
+        "title": "The Texan",
+        "rating": "Lean Right",
+        "url": "https://thetexan.news/"
+    },
+    "texasobserver.org": {
+        "title": "The Texas Observer",
+        "rating": "Lean Left",
+        "url": "https://www.texasobserver.org/"
+    },
+    "texastribune.org": {
+        "title": "The Texas Tribune",
+        "rating": "Lean Left",
+        "url": "https://www.texastribune.org/"
+    },
+    "theblaze.com": {
+        "title": "The Blaze",
+        "rating": "Right",
+        "url": "http://www.theblaze.com/"
+    },
+    "truthdig": {
+        "title": "Truthdig",
+        "rating": "Left",
+        "url": "https://www.truthdig.com/"
+    },
+    "virginiamercury.com": {
+        "title": "Virginia Mercury",
+        "rating": "Center",
+        "url": "https://www.virginiamercury.com/"
+    },
+    "vox.com": {
+        "title": "Vox",
+        "rating": "Left",
+        "url": "https://www.vox.com/"
+    },
+    "wakeuptopolitics.com": {
+        "title": "Wake Up to Politics",
+        "rating": "Center",
+        "url": "https://www.wakeuptopolitics.com/"
+    },
+    "wandtv.com": {
+        "title": "WANDTV",
+        "rating": "Center",
+        "url": "https://www.wandtv.com/"
+    },
+    "watchdog.org": {
+        "title": "Watchdog.org",
+        "rating": "Lean Right",
+        "url": "https://www.watchdog.org/"
+    },
+    "wgntv.com": {
+        "title": "WGN",
+        "rating": "Center",
+        "url": "https://wgntv.com/"
+    },
+    "whatfinger.com": {
+        "title": "Whatfinger News",
+        "rating": "Right",
+        "url": "https://www.whatfinger.com/"
+    },
+    "wired.com": {
+        "title": "Wired",
+        "rating": "Center",
+        "url": "https://wired.com/"
+    },
+    "news.yahoo.com/360": {
+        "title": "Yahoo! The 360",
+        "rating": "Mixed",
+        "url": "https://news.yahoo.com/360"
+    },
     "wisconsingazette.com": {
         "title": "Wisconsin Gazette",
         "rating": "Lean Left",
@@ -16,28 +646,18 @@ window.allSidesRatings = {
     },
     "wsj.com": {
         "title": "Wall Street Journal",
-        "rating": "Lean Right",
-        "url": "http://online.wsj.com/public/page/news-opinion-commentary.html"
+        "rating": "Center",
+        "url": "http://wsj.com/"
     },
     "upworthy.com": {
         "title": "Upworthy",
         "rating": "Left",
         "url": "http://upworthy.com"
     },
-    "wnd.com": {
-        "title": "WND.com",
-        "rating": "Right",
-        "url": "http://www.wnd.com/"
-    },
     "washingtonpost.com": {
         "title": "Washington Post",
         "rating": "Lean Left",
         "url": "https://www.washingtonpost.com/"
-    },
-    "gq.com": {
-        "title": "GQ.com",
-        "rating": "Lean Left",
-        "url": "https://gq.com/"
     },
     "vanityfair.com": {
         "title": "Vanity Fair",
@@ -53,11 +673,6 @@ window.allSidesRatings = {
         "title": "Washington Examiner",
         "rating": "Lean Right",
         "url": "http://washingtonexaminer.com/"
-    },
-    "vox.com": {
-        "title": "Vox.com",
-        "rating": "Lean Left",
-        "url": "http://www.vox.com"
     },
     "volanteonline.com": {
         "title": "Volante",
@@ -324,11 +939,6 @@ window.allSidesRatings = {
         "rating": "Lean Left",
         "url": "http://www.mediaite.com/"
     },
-    "factcheck.org": {
-        "title": "FactCheck.org",
-        "rating": "Center",
-        "url": "http://factcheck.org/"
-    },
     "theintercept.com": {
         "title": "The Intercept",
         "rating": "Left",
@@ -378,11 +988,6 @@ window.allSidesRatings = {
         "title": "C-SPAN",
         "rating": "Center",
         "url": "http://www.c-span.org/"
-    },
-    "nmpolitics.net": {
-        "title": "NMPolitics.net",
-        "rating": "Center",
-        "url": "http://nmpolitics.net/"
     },
     "thehill.com": {
         "title": "The Hill",
@@ -437,7 +1042,7 @@ window.allSidesRatings = {
     "reason.org": {
         "title": "Reason",
         "rating": "Lean Right",
-        "url": "http://reason.org/"
+        "url": "http://reason.com/press/in-the-news/atom.xml"
     },
     "reason.com": {
         "title": "Reason",
@@ -473,11 +1078,6 @@ window.allSidesRatings = {
         "title": "The Red and Black",
         "rating": "Center",
         "url": "http://www.redandblack.com/"
-    },
-    "theblaze.com": {
-        "title": "TheBlaze",
-        "rating": "Right",
-        "url": "http://www.theblaze.com/"
     },
     "redstate.com": {
         "title": "Red State",
@@ -607,7 +1207,7 @@ window.allSidesRatings = {
     "suspendbeliefpodcast.com": {
         "title": "Suspend Belief Podcast",
         "rating": "Mixed",
-        "url": "http://suspendbeliefpodcast.com/"
+        "url": "https://itunes.apple.com/us/podcast/the-dreaded-disagreement/id1053294043?i=356129673&mt=2"
     },
     "itunes.apple.com": {
         "title": "Suspend Belief Podcast",
@@ -658,11 +1258,6 @@ window.allSidesRatings = {
         "title": "Deseret News",
         "rating": "Lean Right",
         "url": "http://www.deseretnews.com/"
-    },
-    "fair.org": {
-        "title": "Fair.org",
-        "rating": "Center",
-        "url": "http://fair.org/"
     },
     "thefederalist.com": {
         "title": "The Federalist",
@@ -909,11 +1504,6 @@ window.allSidesRatings = {
         "rating": "Lean Left",
         "url": "http://www.time.com/time/"
     },
-    "michellemalkin.com": {
-        "title": "MichelleMalkin.com",
-        "rating": "Right",
-        "url": "http://michellemalkin.com/"
-    },
     "countercurrents.org": {
         "title": "Counter Currents",
         "rating": "Lean Left",
@@ -973,11 +1563,6 @@ window.allSidesRatings = {
         "title": "Huffington Post",
         "rating": "Left",
         "url": "http://www.huffingtonpost.com/"
-    },
-    "cnsnews.com": {
-        "title": "CNS News",
-        "rating": "Right",
-        "url": "http://www.cnsnews.com"
     },
     "nbcnews.com": {
         "title": "NBC News",
@@ -1048,11 +1633,6 @@ window.allSidesRatings = {
         "title": "National Review",
         "rating": "Right",
         "url": "http://www.nationalreview.com/"
-    },
-    "rollingstone.com": {
-        "title": "Rolling Stone",
-        "rating": "Left",
-        "url": "http://www.rollingstone.com/"
     },
     "cookpolitical.com": {
         "title": "Cook Report",
