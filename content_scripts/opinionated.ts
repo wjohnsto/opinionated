@@ -2,16 +2,16 @@ import allSidesRatings from './data/allSidesRatings';
 import swprsRatings from './data/swprsRatings';
 
 let ratings = mergeKeys(swprsRatings, allSidesRatings);
-type KeysOf<T> = Array<keyof T>;
+type KeysOf<T> = [keyof T];
 
 let ratingsKeys: KeysOf<typeof ratings> = <any>Object.keys(ratings);
 let ratingsMap = {
-    'Left': '<<',
+    Left: '<<',
     'Lean Left': '<',
-    'Center': '<>',
-    'Mixed': '<~>',
+    Center: '<>',
+    Mixed: '<~>',
     'Lean Right': '>',
-    'Right': '>>'
+    Right: '>>',
 };
 
 function mergeKeys<T, U>(a: T, b: U): T & U {
@@ -27,16 +27,19 @@ function mergeKeys<T, U>(a: T, b: U): T & U {
     return out;
 }
 
-function findHeader(el: HTMLElement, start?: number): HTMLHeadingElement | void {
+function findHeader(
+    el: HTMLElement,
+    start?: number
+): HTMLHeadingElement | void {
     if (!start) {
-        start = 1
+        start = 1;
     }
 
     if (start > 6) {
         return;
     }
 
-    let h = el.querySelector('h' + start)
+    let h = el.querySelector('h' + start);
 
     if (h) {
         return <HTMLHeadingElement>h;
@@ -51,7 +54,7 @@ function find_links() {
     let urlPartRegex = /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/i;
     let loc = window.location.href;
 
-    loc = loc.split('?')[0]
+    loc = loc.split('?')[0];
 
     if (regex.test(loc)) {
         return;
@@ -79,19 +82,25 @@ function find_links() {
 
         let urlHost = urlParts[2];
 
-
         if (urlHost === host) {
             return;
         }
 
         for (let i = 0; i < ratingsKeys.length; ++i) {
             if (url.toLowerCase().indexOf(ratingsKeys[i].toLowerCase()) > -1) {
-                rating = (<any>ratingsMap)[ratings[ratingsKeys[i]].rating] || '';
+                rating =
+                    (<any>ratingsMap)[ratings[ratingsKeys[i]].rating] || '';
             }
         }
 
         if (regex.test(url) && !/(?:twitter\.com|facebook\.com)/i.test(url)) {
-            if (!/\[OPINIONATED\]/i.test(link.textContent) && !(/OPINION/i.test(link.textContent) || regex.test(link.textContent))) {
+            if (
+                !/\[OPINIONATED\]/i.test(link.textContent) &&
+                !(
+                    /OPINION/i.test(link.textContent) ||
+                    regex.test(link.textContent)
+                )
+            ) {
                 let el = document.createElement('span');
                 el.style.color = 'red';
                 el.style.fontWeight = 'bold';
@@ -111,9 +120,7 @@ function find_links() {
             el.style.fontWeight = 'bold';
 
             if (rating) {
-
             } else {
-
             }
             el.textContent = '[' + rating + '] ';
             let header = findHeader(link);
@@ -130,9 +137,9 @@ function find_links() {
 setInterval(() => {
     try {
         find_links();
-    } catch (e) { }
+    } catch (e) {}
 }, 5000);
 
 try {
     find_links();
-} catch (e) { }
+} catch (e) {}

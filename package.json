@@ -4,10 +4,13 @@
     "description": "The purpose of this addon is to inform you when a link location is an opinion article. Most popular news sites have opinion blogs, and you don't want to confuse those articles with reporting articles. The addon will add \"[Opinionated]\" to the text content of every identified URL that links to an opinion article.",
     "main": "content_scripts/opinionated.js",
     "scripts": {
-        "build": "npm run clean && web-ext build",
-        "clean": "rimraf web-ext-artifacts",
-        "test": "web-ext run",
-        "ts": "tsc ."
+        "build": "npm run clean && npm run ts && npm run bundle && web-ext build && npm run clean",
+        "bundle": "browserify content_scripts/opinionated.js -o content_scripts/opinionated.js && uglifyjs -o content_scripts/opinionated.min.js --compress --mangle -- content_scripts/opinionated.js",
+        "clean": "rimraf content_scripts/**/*.js && rimraf web-ext-artifacts",
+        "format": "prettier --loglevel warn --config prettier.config.js --write \"content_scripts/**/*.ts\"",
+        "lint": "tslint --fix --force -p tsconfig.json -c tslint.json",
+        "test": "npm run clean && npm run ts && npm run bundle && web-ext run && npm run clean",
+        "ts": "tsc -p ."
     },
     "repository": {
         "type": "git",
@@ -20,8 +23,13 @@
     },
     "homepage": "https://github.com/wjohnsto/opinionated#readme",
     "devDependencies": {
+        "browserify": "^16.5.1",
+        "prettier": "^2.0.4",
         "rimraf": "^3.0.2",
+        "tslint": "^6.1.1",
+        "tslint-microsoft-contrib": "^6.2.0",
         "typescript": "^3.8.3",
+        "uglify-js": "^3.8.1",
         "web-ext": "^4.1.0"
     }
 }
