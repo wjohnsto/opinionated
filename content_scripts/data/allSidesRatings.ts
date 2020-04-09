@@ -1,4 +1,4 @@
-window.allSidesRatings = {
+export = {
     "abovethelaw.com": {
         "title": "Above The Law",
         "rating": "Lean Left",

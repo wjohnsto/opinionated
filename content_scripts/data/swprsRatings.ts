@@ -1,4 +1,4 @@
-window.swprsRatings = {
+export = {
     "huffpost.com": {
         "title": "HuffPost",
         "url": "https://www.huffpost.com/",

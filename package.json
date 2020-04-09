@@ -6,7 +6,8 @@
     "scripts": {
         "build": "npm run clean && web-ext build",
         "clean": "rimraf web-ext-artifacts",
-        "test": "web-ext run"
+        "test": "web-ext run",
+        "ts": "tsc ."
     },
     "repository": {
         "type": "git",
@@ -20,6 +21,7 @@
     "homepage": "https://github.com/wjohnsto/opinionated#readme",
     "devDependencies": {
         "rimraf": "^3.0.2",
+        "typescript": "^3.8.3",
         "web-ext": "^4.1.0"
     }
 }
