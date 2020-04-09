@@ -1,11 +1,24 @@
 import allSidesRatings from './data/allSidesRatings';
 import swprsRatings from './data/swprsRatings';
 
-let ratings = mergeKeys(swprsRatings, allSidesRatings);
+function mergeKeys<T, U>(a: T, b: U): T & U {
+    const keys = Object.keys(b);
+    const out = JSON.parse(JSON.stringify(a));
+
+    for (let i = 0; i < keys.length; ++i) {
+        const key = keys[i];
+
+        out[key] = (b as any)[key];
+    }
+
+    return out;
+}
+
+const ratings = mergeKeys(swprsRatings, allSidesRatings);
 type KeysOf<T> = [keyof T];
 
-let ratingsKeys: KeysOf<typeof ratings> = <any>Object.keys(ratings);
-let ratingsMap = {
+const ratingsKeys: KeysOf<typeof ratings> = Object.keys(ratings) as any;
+const ratingsMap = {
     Left: '<<',
     'Lean Left': '<',
     Center: '<>',
@@ -13,24 +26,7 @@ let ratingsMap = {
     'Lean Right': '>',
     Right: '>>',
 };
-let ignoreUrls = [
-    'dropbox.com',
-    'docs.google.com',
-    'sharepoint.com'
-];
-
-function mergeKeys<T, U>(a: T, b: U): T & U {
-    let keys = Object.keys(b);
-    let out = JSON.parse(JSON.stringify(a));
-
-    for (let i = 0; i < keys.length; ++i) {
-        let key = keys[i];
-
-        out[key] = (<any>b)[key];
-    }
-
-    return out;
-}
+const ignoreUrls = ['dropbox.com', 'docs.google.com', 'sharepoint.com'];
 
 function findHeader(
     el: HTMLElement,
@@ -44,19 +40,19 @@ function findHeader(
         return;
     }
 
-    let h = el.querySelector('h' + start);
+    const h = el.querySelector('h' + start);
 
     if (h) {
-        return <HTMLHeadingElement>h;
+        return h as HTMLHeadingElement;
     }
 
     return findHeader(el, start + 1);
 }
 
-function find_links() {
-    let links = document.querySelectorAll('a');
-    let regex = /(?:opinions?|editorials?)(?:[^\/]*)\//i;
-    let urlPartRegex = /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/i;
+function findLinks() {
+    const links = document.querySelectorAll('a');
+    const regex = /(?:opinions?|editorials?)(?:[^\/]*)\//i;
+    const urlPartRegex = /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/i;
     let loc = window.location.href;
 
     loc = loc.split('?')[0];
@@ -65,7 +61,7 @@ function find_links() {
         return;
     }
 
-    let ignore = ignoreUrls.some((value) => {
+    const ignore = ignoreUrls.some((value) => {
         return loc.indexOf(value) > -1;
     });
 
@@ -73,29 +69,28 @@ function find_links() {
         return;
     }
 
-    let locParts = urlPartRegex.exec(loc);
+    const locParts = urlPartRegex.exec(loc);
 
     if (!locParts) {
         return;
     }
 
-    let host = locParts[2];
-
+    const host = locParts[2];
 
     links.forEach((link) => {
         if (!link.textContent) {
             link.textContent = '';
         }
 
-        let url = link.href.split('?')[0];
+        const url = link.href.split('?')[0];
         let rating = '';
-        let urlParts = urlPartRegex.exec(url);
+        const urlParts = urlPartRegex.exec(url);
 
         if (!urlParts) {
             return;
         }
 
-        let urlHost = urlParts[2];
+        const urlHost = urlParts[2];
 
         if (urlHost === host) {
             return;
@@ -104,7 +99,7 @@ function find_links() {
         for (let i = 0; i < ratingsKeys.length; ++i) {
             if (url.toLowerCase().indexOf(ratingsKeys[i].toLowerCase()) > -1) {
                 rating =
-                    (<any>ratingsMap)[ratings[ratingsKeys[i]].rating] || '';
+                    (ratingsMap as any)[ratings[ratingsKeys[i]].rating] || '';
             }
         }
 
@@ -116,12 +111,12 @@ function find_links() {
                     regex.test(link.textContent)
                 )
             ) {
-                let el = document.createElement('span');
+                const el = document.createElement('span');
                 el.style.color = 'red';
                 el.style.fontWeight = 'bold';
                 el.textContent = '[OPINIONATED] ';
 
-                let header = findHeader(link);
+                const header = findHeader(link);
 
                 if (header) {
                     header.insertBefore(el, header.firstChild);
@@ -130,7 +125,7 @@ function find_links() {
                 }
             }
         } else if (rating && link.textContent.indexOf(rating) === -1) {
-            let el = document.createElement('span');
+            const el = document.createElement('span');
             el.style.color = 'red';
             el.style.fontWeight = 'bold';
 
@@ -138,7 +133,7 @@ function find_links() {
             } else {
             }
             el.textContent = '[' + rating + '] ';
-            let header = findHeader(link);
+            const header = findHeader(link);
 
             if (header) {
                 header.insertBefore(el, header.firstChild);
@@ -151,10 +146,10 @@ function find_links() {
 
 setInterval(() => {
     try {
-        find_links();
+        findLinks();
     } catch (e) {}
 }, 3000);
 
 try {
-    find_links();
+    findLinks();
 } catch (e) {}
