@@ -13,6 +13,11 @@ let ratingsMap = {
     'Lean Right': '>',
     Right: '>>',
 };
+let ignoreUrls = [
+    'dropbox.com',
+    'docs.google.com',
+    'sharepoint.com'
+];
 
 function mergeKeys<T, U>(a: T, b: U): T & U {
     let keys = Object.keys(b);
@@ -59,6 +64,15 @@ function find_links() {
     if (regex.test(loc)) {
         return;
     }
+
+    let ignore = ignoreUrls.some((value) => {
+        return loc.indexOf(value) > -1;
+    });
+
+    if (ignore) {
+        return;
+    }
+
     let locParts = urlPartRegex.exec(loc);
 
     if (!locParts) {
@@ -66,6 +80,7 @@ function find_links() {
     }
 
     let host = locParts[2];
+
 
     links.forEach((link) => {
         if (!link.textContent) {
@@ -138,7 +153,7 @@ setInterval(() => {
     try {
         find_links();
     } catch (e) {}
-}, 5000);
+}, 3000);
 
 try {
     find_links();
