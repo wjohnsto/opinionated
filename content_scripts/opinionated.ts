@@ -1,3 +1,4 @@
+import allSidesData from './data/allsides_data.json';
 import allSidesRatings from './data/allSidesRatings';
 import swprsRatings from './data/swprsRatings';
 
@@ -27,6 +28,7 @@ const ratingsMap = {
     Right: '>>',
 };
 const ignoreUrls = ['dropbox.com', 'docs.google.com', 'sharepoint.com'];
+const ignoreLinks = ['twitter.com', 'facebook.com', 'linkedin.com'];
 
 function findHeader(
     el: HTMLElement,
@@ -49,6 +51,12 @@ function findHeader(
     return findHeader(el, start + 1);
 }
 
+function contains(arr: string[], str: string) {
+    return arr.some((value) => {
+        return str.indexOf(value) > -1;
+    });
+}
+
 function findLinks() {
     const links = document.querySelectorAll('a');
     const regex = /(?:opinions?|editorials?)(?:[^\/]*)\//i;
@@ -61,9 +69,7 @@ function findLinks() {
         return;
     }
 
-    const ignore = ignoreUrls.some((value) => {
-        return loc.indexOf(value) > -1;
-    });
+    let ignore = contains(ignoreUrls, loc);
 
     if (ignore) {
         return;
@@ -78,11 +84,19 @@ function findLinks() {
     const host = locParts[2];
 
     links.forEach((link) => {
-        if (!link.textContent) {
+        let textContent: string = <string>link.textContent;
+
+        if (!textContent) {
             link.textContent = '';
         }
 
         const url = link.href.split('?')[0];
+        ignore = contains(ignoreLinks, url);
+
+        if (ignore || !!link.querySelector('img')) {
+            return;
+        }
+
         let rating = '';
         const urlParts = urlPartRegex.exec(url);
 
@@ -103,12 +117,12 @@ function findLinks() {
             }
         }
 
-        if (regex.test(url) && !/(?:twitter\.com|facebook\.com)/i.test(url)) {
+        if (regex.test(url)) {
             if (
-                !/\[OPINIONATED\]/i.test(link.textContent) &&
+                !/\[OPINIONATED\]/i.test(textContent) &&
                 !(
-                    /OPINION/i.test(link.textContent) ||
-                    regex.test(link.textContent)
+                    /OPINION/i.test(textContent) ||
+                    regex.test(textContent)
                 )
             ) {
                 const el = document.createElement('span');
@@ -124,7 +138,7 @@ function findLinks() {
                     link.insertBefore(el, link.firstChild);
                 }
             }
-        } else if (rating && link.textContent.indexOf(rating) === -1) {
+        } else if (rating && textContent.indexOf(rating) === -1) {
             const el = document.createElement('span');
             el.style.color = 'red';
             el.style.fontWeight = 'bold';
