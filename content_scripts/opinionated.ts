@@ -84,10 +84,10 @@ function findLinks() {
     const host = locParts[2];
 
     links.forEach((link) => {
-        let textContent: string = <string>link.textContent;
+        let textContent = link.textContent;
 
         if (!textContent) {
-            link.textContent = '';
+            textContent = '';
         }
 
         const url = link.href.split('?')[0];
