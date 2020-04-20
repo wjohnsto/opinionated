@@ -10,7 +10,7 @@
     "scripts": {
         "build": "npm run clean:full && npm run ts && npm run bundle && web-ext build -i *js {package-lock,package,tsconfig,tslint}.json content_scripts/data content_scripts/*.ts content_scripts/opinionated.js && npm run clean",
         "bundle": "browserify content_scripts/opinionated.js -o content_scripts/opinionated.js && uglifyjs -o content_scripts/opinionated.min.js --compress --mangle -- content_scripts/opinionated.js",
-        "clean:full": "rimraf content_scripts/**/*.js && rimraf web-ext-artifacts",
+        "clean:full": "rimraf opinionated.zip content_scripts/**/*.js && rimraf web-ext-artifacts",
         "clean": "rimraf content_scripts/**/*.js",
         "lint": "npm run clean:full && tsc --noEmit -p . && eslint */**/*.{js,ts,tsx} --quiet --fix",
         "test": "npm run clean:full && npm run ts && npm run bundle && web-ext run -i *js {package-lock,package,tsconfig,tslint}.json content_scripts/data content_scripts/*.ts content_scripts/opinionated.js && npm run clean:full",
