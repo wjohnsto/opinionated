@@ -15,7 +15,12 @@ function mergeKeys<T, U>(a: T, b: U): T & U {
     return out;
 }
 
+function getUrlParts(url: string) {
+    return /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/i.exec(url);
+}
+
 const ratings = mergeKeys(swprsRatings, allSidesRatings);
+
 type KeysOf<T> = [keyof T];
 
 const ratingsKeys: KeysOf<typeof ratings> = Object.keys(ratings) as any;
@@ -27,8 +32,40 @@ const ratingsMap = {
     'Lean Right': '>',
     Right: '>>',
 };
+const ratingsNumbersMap: { [key: string]: string; } = {
+    '71': 'Left',
+    '72': 'Lean Left',
+    '73': 'Center',
+    '74': 'Lean Right',
+    '75': 'Right',
+    '2707': 'Mixed',
+    // 2690: 'Not Yet Rated',
+};
+const opinionRegex = /(?:opinions?|editorials?)(?:[^\/]*)\//i;
+
 const ignoreUrls = ['dropbox.com', 'docs.google.com', 'sharepoint.com'];
 const ignoreLinks = ['twitter.com', 'facebook.com', 'linkedin.com'];
+
+for (let i = 0; i < allSidesData.length; ++i) {
+    let dataSource = allSidesData[i];
+    let parts = getUrlParts(dataSource.url);
+
+    if (!parts || !parts[2]) {
+        continue;
+    }
+
+    let shortUrl = parts[2].replace('www.', '');
+
+    if (opinionRegex.test(shortUrl)) {
+        continue;
+    }
+
+    (ratings as any)[shortUrl] = {
+        rating: ratingsNumbersMap[dataSource.bias_rating as any],
+        titla: dataSource.news_source,
+        url: dataSource.url,
+    };
+}
 
 function findHeader(
     el: HTMLElement,
@@ -59,13 +96,12 @@ function contains(arr: string[], str: string) {
 
 function findLinks() {
     const links = document.querySelectorAll('a');
-    const regex = /(?:opinions?|editorials?)(?:[^\/]*)\//i;
-    const urlPartRegex = /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/i;
+
     let loc = window.location.href;
 
     loc = loc.split('?')[0];
 
-    if (regex.test(loc)) {
+    if (opinionRegex.test(loc)) {
         return;
     }
 
@@ -75,7 +111,7 @@ function findLinks() {
         return;
     }
 
-    const locParts = urlPartRegex.exec(loc);
+    const locParts = getUrlParts(loc);
 
     if (!locParts) {
         return;
@@ -98,7 +134,7 @@ function findLinks() {
         }
 
         let rating = '';
-        const urlParts = urlPartRegex.exec(url);
+        const urlParts = getUrlParts(url);
 
         if (!urlParts) {
             return;
@@ -117,12 +153,12 @@ function findLinks() {
             }
         }
 
-        if (regex.test(url)) {
+        if (opinionRegex.test(url)) {
             if (
                 !/\[OPINIONATED\]/i.test(textContent) &&
                 !(
                     /OPINION/i.test(textContent) ||
-                    regex.test(textContent)
+                    opinionRegex.test(textContent)
                 )
             ) {
                 const el = document.createElement('span');
