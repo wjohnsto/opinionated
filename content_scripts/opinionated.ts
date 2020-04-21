@@ -94,6 +94,44 @@ function contains(arr: string[], str: string) {
     });
 }
 
+function applyBias(rating: string, textContent: string, link: HTMLAnchorElement) {
+    if (rating && textContent.indexOf(rating) === -1) {
+        const el = document.createElement('span');
+        el.style.color = 'red';
+        el.style.fontWeight = 'bold';
+        if (rating) {
+        }
+        else {
+        }
+        el.textContent = '[' + rating + '] ';
+        const header = findHeader(link);
+        if (header) {
+            header.insertBefore(el, header.firstChild);
+        }
+        else {
+            link.insertBefore(el, link.firstChild);
+        }
+    }
+}
+
+function applyOpinionated(textContent: string, link: HTMLAnchorElement) {
+    if (!/\[OPINIONATED\]/i.test(textContent) &&
+        !(/OPINION/i.test(textContent) ||
+            opinionRegex.test(textContent))) {
+        const el = document.createElement('span');
+        el.style.color = 'red';
+        el.style.fontWeight = 'bold';
+        el.textContent = '[OPINIONATED] ';
+        const header = findHeader(link);
+        if (header) {
+            header.insertBefore(el, header.firstChild);
+        }
+        else {
+            link.insertBefore(el, link.firstChild);
+        }
+    }
+}
+
 function findLinks() {
     const links = document.querySelectorAll('a');
 
@@ -154,43 +192,42 @@ function findLinks() {
         }
 
         if (opinionRegex.test(url)) {
-            if (
-                !/\[OPINIONATED\]/i.test(textContent) &&
-                !(
-                    /OPINION/i.test(textContent) ||
-                    opinionRegex.test(textContent)
-                )
-            ) {
-                const el = document.createElement('span');
-                el.style.color = 'red';
-                el.style.fontWeight = 'bold';
-                el.textContent = '[OPINIONATED] ';
+            applyOpinionated(textContent, link);
 
-                const header = findHeader(link);
+            return;
+        } else if (urlHost.indexOf('marketwatch') > -1) {
+            fetch(url).then((result) => {
+                return result.text();
+            }).then((text) => {
+                let m = text.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/im);
 
-                if (header) {
-                    header.insertBefore(el, header.firstChild);
-                } else {
-                    link.insertBefore(el, link.firstChild);
+                if (!m) {
+                    applyBias(rating, textContent as string, link);
+                    return;
                 }
-            }
-        } else if (rating && textContent.indexOf(rating) === -1) {
-            const el = document.createElement('span');
-            el.style.color = 'red';
-            el.style.fontWeight = 'bold';
 
-            if (rating) {
-            } else {
-            }
-            el.textContent = '[' + rating + '] ';
-            const header = findHeader(link);
+                const ldJson = JSON.parse(m[1]);
 
-            if (header) {
-                header.insertBefore(el, header.firstChild);
-            } else {
-                link.insertBefore(el, link.firstChild);
-            }
+                if (!ldJson || !Array.isArray(ldJson.keywords)) {
+                    applyBias(rating, textContent as string, link);
+                    return;
+                }
+
+                const isOpinion = (ldJson.keywords as string[]).some((keyword) => {
+                    return /(?:opinions?|editorials?)/.test(keyword);
+                });
+
+                if (isOpinion) {
+                    applyOpinionated(textContent as string, link);
+
+                    return;
+                }
+            });
+
+            return;
         }
+
+        applyBias(rating, textContent, link);
     });
 }
 
