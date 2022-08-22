@@ -38,6 +38,6 @@
         "tslint-microsoft-contrib": "^6.2.0",
         "typescript": "^3.8.3",
         "uglify-js": "^3.9.1",
-        "web-ext": "^4.1.0"
+        "web-ext": "^4.3.0"
     }
 }
