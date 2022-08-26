@@ -2,7 +2,7 @@ import allSidesData from './data/allsides_data.json';
 import allSidesRatings from './data/allSidesRatings';
 import swprsRatings from './data/swprsRatings';
 
-function mergeKeys<T, U>(a: T, b: U): T & U {
+function mergeKeys<T extends typeof swprsRatings, U extends typeof allSidesRatings>(a: T, b: U): T & U {
     const keys = Object.keys(b);
     const out = JSON.parse(JSON.stringify(a));
 
