@@ -2,28 +2,33 @@ import allSidesData from './data/allsides_data.json';
 import allSidesRatings from './data/allSidesRatings';
 import swprsRatings from './data/swprsRatings';
 
-function mergeKeys<T extends typeof swprsRatings, U extends typeof allSidesRatings>(a: T, b: U): T & U {
-    const keys = Object.keys(b);
+type KeysOf<T> = [keyof T];
+
+function mergeKeys<
+    T extends typeof swprsRatings,
+    U extends typeof allSidesRatings,
+>(a: T, b: U): T & U {
+    const keys = Object.keys(b) as KeysOf<typeof b>;
     const out = JSON.parse(JSON.stringify(a));
 
     for (let i = 0; i < keys.length; ++i) {
         const key = keys[i];
 
-        out[key] = (b as any)[key];
+        out[key] = b[key];
     }
 
     return out;
 }
 
 function getUrlParts(url: string) {
-    return /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/i.exec(url);
+    return /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/i.exec(
+        url
+    );
 }
 
 const ratings = mergeKeys(swprsRatings, allSidesRatings);
 
-type KeysOf<T> = [keyof T];
-
-const ratingsKeys: KeysOf<typeof ratings> = Object.keys(ratings) as any;
+const ratingsKeys = Object.keys(ratings) as KeysOf<typeof ratings>;
 const ratingsMap = {
     Left: '<<',
     'Lean Left': '<',
@@ -32,7 +37,7 @@ const ratingsMap = {
     'Lean Right': '>',
     Right: '>>',
 };
-const ratingsNumbersMap: { [key: string]: string; } = {
+const ratingsNumbersMap: { [key: string]: string } = {
     '71': 'Left',
     '72': 'Lean Left',
     '73': 'Center',
@@ -47,22 +52,26 @@ const ignoreUrls = ['dropbox.com', 'docs.google.com', 'sharepoint.com'];
 const ignoreLinks = ['twitter.com', 'facebook.com', 'linkedin.com'];
 
 for (let i = 0; i < allSidesData.length; ++i) {
-    let dataSource = allSidesData[i];
-    let parts = getUrlParts(dataSource.url);
+    const dataSource = allSidesData[i];
+    dataSource.allsides_url = dataSource.allsides_url.replace(/\\/g, '');
+    dataSource.url = dataSource.url.replace(/\\/g, '');
+    const parts = getUrlParts(dataSource.url);
 
     if (!parts || !parts[2]) {
         continue;
     }
 
-    let shortUrl = parts[2].replace('www.', '');
+    const shortUrl = parts[2].replace('www.', '') as keyof typeof ratings;
 
     if (opinionRegex.test(shortUrl)) {
         continue;
     }
 
-    (ratings as any)[shortUrl] = {
-        rating: ratingsNumbersMap[dataSource.bias_rating as any],
-        titla: dataSource.news_source,
+    ratings[shortUrl] = {
+        rating: ratingsNumbersMap[
+            dataSource.bias_rating as keyof typeof ratingsNumbersMap
+        ],
+        title: dataSource.news_source,
         url: dataSource.url,
     };
 }
@@ -94,30 +103,33 @@ function contains(arr: string[], str: string) {
     });
 }
 
-function applyBias(rating: string, textContent: string, link: HTMLAnchorElement) {
+function applyBias(
+    rating: string,
+    textContent: string,
+    link: HTMLAnchorElement
+) {
     if (rating && textContent.indexOf(rating) === -1) {
         const el = document.createElement('span');
         el.style.color = 'red';
         el.style.fontWeight = 'bold';
         if (rating) {
-        }
-        else {
+        } else {
         }
         el.textContent = '[' + rating + '] ';
         const header = findHeader(link);
         if (header) {
             header.insertBefore(el, header.firstChild);
-        }
-        else {
+        } else {
             link.insertBefore(el, link.firstChild);
         }
     }
 }
 
 function applyOpinionated(textContent: string, link: HTMLAnchorElement) {
-    if (!/\[OPINIONATED\]/i.test(textContent) &&
-        !(/OPINION/i.test(textContent) ||
-            opinionRegex.test(textContent))) {
+    if (
+        !/\[OPINIONATED\]/i.test(textContent) &&
+        !(/OPINION/i.test(textContent) || opinionRegex.test(textContent))
+    ) {
         const el = document.createElement('span');
         el.style.color = 'red';
         el.style.fontWeight = 'bold';
@@ -125,8 +137,7 @@ function applyOpinionated(textContent: string, link: HTMLAnchorElement) {
         const header = findHeader(link);
         if (header) {
             header.insertBefore(el, header.firstChild);
-        }
-        else {
+        } else {
             link.insertBefore(el, link.firstChild);
         }
     }
@@ -187,7 +198,10 @@ function findLinks() {
         for (let i = 0; i < ratingsKeys.length; ++i) {
             if (url.toLowerCase().indexOf(ratingsKeys[i].toLowerCase()) > -1) {
                 rating =
-                    (ratingsMap as any)[ratings[ratingsKeys[i]].rating] || '';
+                    ratingsMap[
+                        ratings[ratingsKeys[i]]
+                            .rating as keyof typeof ratingsMap
+                    ] || '';
             }
         }
 
@@ -196,33 +210,39 @@ function findLinks() {
 
             return;
         } else if (urlHost.indexOf('marketwatch') > -1) {
-            fetch(url).then((result) => {
-                return result.text();
-            }).then((text) => {
-                let m = text.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/im);
+            fetch(url)
+                .then((result) => {
+                    return result.text();
+                })
+                .then((text) => {
+                    const m = text.match(
+                        /<script type="application\/ld\+json">([\s\S]*?)<\/script>/im
+                    );
 
-                if (!m) {
-                    applyBias(rating, textContent as string, link);
-                    return;
-                }
+                    if (!m) {
+                        applyBias(rating, textContent as string, link);
+                        return;
+                    }
 
-                const ldJson = JSON.parse(m[1]);
+                    const ldJson = JSON.parse(m[1]);
 
-                if (!ldJson || !Array.isArray(ldJson.keywords)) {
-                    applyBias(rating, textContent as string, link);
-                    return;
-                }
+                    if (!ldJson || !Array.isArray(ldJson.keywords)) {
+                        applyBias(rating, textContent as string, link);
+                        return;
+                    }
 
-                const isOpinion = (ldJson.keywords as string[]).some((keyword) => {
-                    return /(?:opinions?|editorials?)/.test(keyword);
+                    const isOpinion = (ldJson.keywords as string[]).some(
+                        (keyword) => {
+                            return /(?:opinions?|editorials?)/.test(keyword);
+                        }
+                    );
+
+                    if (isOpinion) {
+                        applyOpinionated(textContent as string, link);
+
+                        return;
+                    }
                 });
-
-                if (isOpinion) {
-                    applyOpinionated(textContent as string, link);
-
-                    return;
-                }
-            });
 
             return;
         }

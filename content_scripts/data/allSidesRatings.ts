@@ -1207,14 +1207,12 @@ export = {
     'suspendbeliefpodcast.com': {
         title: 'Suspend Belief Podcast',
         rating: 'Mixed',
-        url:
-            'https://itunes.apple.com/us/podcast/the-dreaded-disagreement/id1053294043?i=356129673&mt=2',
+        url: 'https://itunes.apple.com/us/podcast/the-dreaded-disagreement/id1053294043?i=356129673&mt=2',
     },
     'itunes.apple.com': {
         title: 'Suspend Belief Podcast',
         rating: 'Mixed',
-        url:
-            'https://itunes.apple.com/us/podcast/the-dreaded-disagreement/id1053294043?i=356129673&mt=2',
+        url: 'https://itunes.apple.com/us/podcast/the-dreaded-disagreement/id1053294043?i=356129673&mt=2',
     },
     'idsnews.com': {
         title: 'Indiana Daily Student',
