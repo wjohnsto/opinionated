@@ -37,6 +37,6 @@
         "rimraf": "^5.0.1",
         "typescript": "^5.1.6",
         "uglify-js": "^3.17.4",
-        "web-ext": "^8.9.0"
+        "web-ext": "^8.10.0"
     }
 }
